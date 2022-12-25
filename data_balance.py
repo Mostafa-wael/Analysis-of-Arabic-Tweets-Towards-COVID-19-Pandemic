@@ -26,5 +26,6 @@ def balance_data(df):
     for k,v in counter.items():
         per = v / len(y_train) * 100
         print('Class=%d, n=%d (%.3f%%)' % (k, v, per))
-    
+    # map 0, 1, 2 to -1, 0, 1
+    y_train = y_train - 1
     return X_train, y_train

@@ -64,21 +64,13 @@ def cleanData(df, name, clean = False, clearData=False):  # If you want to clean
 
 
 def processing(data):
-    # To identify misspelled words
-    spell = SpellChecker() 
     # Apply Lemmatization to the tweets
     st = ISRIStemmer()
-    data['Lemmatization'] = data.text.apply(lambda x:([st.stem(word) for word in x.split()]))
-
+    data['Lemmatization'] = data.text.apply(lambda x: ''.join([st.stem(word) for word in x.split()]))
     # Extract Sentiment Values for each tweet 
     data['sentiment'] = data['stance'].apply(lambda x: 
                                                 'positive' if x == 1 
                                                 else ('negative' if x == -1 
                                                 else 'neutral' )); # Extracting the overall sentiment
-    # Useful Information
-    data['words'] = data.text.apply(lambda x:re.findall(r'\w+', x ))
-    data['errors'] = data.words.apply(spell.unknown)
-    data['errorsCount'] = data.errors.apply(len)
-    data['sentenceLength'] = data.text.apply(len)
 
     return data
