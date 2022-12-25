@@ -66,11 +66,20 @@ def cleanData(df, name, clean = False, clearData=False):  # If you want to clean
 def processing(data):
     # Apply Lemmatization to the tweets
     st = ISRIStemmer()
-    data['Lemmatization'] = data.text.apply(lambda x: ''.join([st.stem(word) for word in x.split()]))
+    data['Lemmatization'] = data.text.apply(lambda x: ([st.stem(word) for word in x.split()]))
     # Extract Sentiment Values for each tweet 
     data['sentiment'] = data['stance'].apply(lambda x: 
                                                 'positive' if x == 1 
                                                 else ('negative' if x == -1 
                                                 else 'neutral' )); # Extracting the overall sentiment
 
+    return data
+
+
+def processing_categories(data):
+    # Apply Lemmatization to the tweets
+    st = ISRIStemmer()
+    data['Lemmatization'] = data.text.apply(lambda x: ([st.stem(word) for word in x.split()]))
+    # Extract Sentiment Values for each tweet 
+    data['sentiment'] = data['category']
     return data
