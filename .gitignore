@@ -1,2 +1,4 @@
 /kaggle.ipynb
 *.model
+__pycache__/*
+*.npy
