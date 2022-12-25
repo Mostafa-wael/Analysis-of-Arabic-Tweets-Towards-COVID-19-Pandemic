@@ -1,13 +1,21 @@
-# Tasks
-1. [] x Add RNN -> Michel & Robert.
-2. [x] x Auto ML(Tpot, Auto SKlearn, lazy classifier) -> Weal.
-3. [x] x Fix Cleaning -> Wael.
-4. [] xx Solve Unbalanced data(Sampling, adjusting weights, ...) -> Elgendy.
-5. [] xxx More feature engineering(TF-IDF, Embeddings, ...) -> Michel & Robert.
+# Pipeline
+- data clean
+- solve unbalanced data
+- 3 ML models
+- 1 autoML
+- *** 1 deep learning
 
-Deadlines:
-17/12 -> 1, 2, 3.
-22/12 -> 4, 5.
-23/12 -> Get the test data.
---
-24/12 -> Discussion.
+# feature engineering
+- word2vec(CBOW, Fast??)
+- Embeddings with XML: XXX 
+
+# target
+- sentiment
+- *** Category
+
+
+# check?
+- sentiment(pre-trained model)
+- *** category(fine tuned model?)
+
+
