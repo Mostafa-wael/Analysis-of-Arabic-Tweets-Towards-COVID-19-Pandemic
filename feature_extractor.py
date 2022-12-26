@@ -12,7 +12,9 @@ def extractWordEmbeddings(data):
     
 # use the model to extract word embeddings
 def getWordEmbeddings(model, word):
-    return model.wv[word]
+    if word in model.wv:
+        return model.wv[word]
+    return np.zeros(100)
 
 # get the word embeddings for each tweet
 def getTweetsEmbeddings(model, tweets):
