@@ -2,3 +2,5 @@
 *.model
 __pycache__/*
 *.npy
+*.pkl
+*.csv

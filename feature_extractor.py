@@ -3,11 +3,13 @@ from gensim.models import Word2Vec
 from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+import pickle
 
 # Extract word embeddings for each tweet
 def extractWordEmbeddings(data):
     model = Word2Vec(data, min_count=1, window=5, sg=0, vector_size=5000)
-    model.save('out/models/word2vec.model')
+    #save the model
+    pickle.dump(model, open('out/models/features/w2v_model.pkl', 'wb'))
     return model
     
 # use the model to extract word embeddings
@@ -26,6 +28,8 @@ def train_count_vectorizer(processed_train_corpus):
     vectorizer = None
     vectorizer = CountVectorizer(token_pattern=r'[^\s]+')
     vectorizer.fit(processed_train_corpus)
+    #save the vectorizer
+    pickle.dump(vectorizer, open('out/models/features/bow_model.pkl', 'wb'))
     
     return vectorizer
 
@@ -33,6 +37,7 @@ def train_count_vectorizer(processed_train_corpus):
 def TFIDF(corpus):
     vectorizer = TfidfVectorizer()
     vectors = vectorizer.fit(corpus)
+    pickle.dump(vectorizer, open('out/models/features/tfidf_model.pkl', 'wb'))
     return vectors
 
 
@@ -43,6 +48,7 @@ def get_feature_models(train_data):
     train_data_strings = [' '.join(ele) for ele in train_data]
     bow_model = train_count_vectorizer(train_data_strings)
     tfidf_model = TFIDF(train_data_strings)
+
 
     return w2v_model, bow_model, tfidf_model
 
@@ -58,7 +64,7 @@ def get_features(w2v_model, bow_model, tfidf_model, train_data, include_w2v = Tr
     for idx in range(len(w2v_features)):
         #temp = w2v_features[idx]
         temp = np.append(w2v_features[idx], tfidf_features[idx])
-        temp = np.append(temp, bow_features[idx])
+        #temp = np.append(temp, bow_features[idx])
 
         res.append(temp)
     
