@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Extract word embeddings for each tweet
 def extractWordEmbeddings(data):
-    model = Word2Vec(data, min_count=1, window=5, sg=0)
+    model = Word2Vec(data, min_count=1, window=5, sg=0, vector_size=5000)
     model.save('out/models/word2vec.model')
     return model
     
@@ -14,7 +14,7 @@ def extractWordEmbeddings(data):
 def getWordEmbeddings(model, word):
     if word in model.wv:
         return model.wv[word]
-    return np.zeros(100)
+    return np.zeros(5000)
 
 # get the word embeddings for each tweet
 def getTweetsEmbeddings(model, tweets):
