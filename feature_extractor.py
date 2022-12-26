@@ -4,10 +4,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
+VECTOR_SIZE = 5000
 
 # Extract word embeddings for each tweet
 def extractWordEmbeddings(data):
-    model = Word2Vec(data, min_count=1, window=5, sg=0, vector_size=5000)
+    model = Word2Vec(data, min_count=1, window=5, sg=0, vector_size=VECTOR_SIZE)
     #save the model
     pickle.dump(model, open('out/models/features/w2v_model.pkl', 'wb'))
     return model
@@ -16,7 +17,7 @@ def extractWordEmbeddings(data):
 def getWordEmbeddings(model, word):
     if word in model.wv:
         return model.wv[word]
-    return np.zeros(5000)
+    return np.zeros(VECTOR_SIZE)
 
 # get the word embeddings for each tweet
 def getTweetsEmbeddings(model, tweets):
