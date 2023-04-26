@@ -1,10 +1,13 @@
 # Analysis on Arabic Tweets Towards COVID-19 Pandemic
 
 ## Pipeline
+![image](https://user-images.githubusercontent.com/56788883/234524209-45260691-7f49-4f15-87d2-d6b8c32629fa.png)
 
 ## Data preprocessing(train data)
+![image](https://user-images.githubusercontent.com/56788883/234524369-2cade57e-7c85-4080-a8d4-08cd1eaade4a.png)
 
 ## Data preprocessing(Test data)
+![image](https://user-images.githubusercontent.com/56788883/234524404-15626a32-b297-4303-a31e-6eaec886442a.png)
 
 ## Feature Extraction
 we basically extracted 3-features for the word embedding word embeddings from the data:
@@ -40,8 +43,10 @@ The given train data was biased and unbalanced. So, we used SMOTE to solve this 
 
 
 ### Data Balancing(Sentiment)
+![image](https://user-images.githubusercontent.com/56788883/234524545-3f64ea61-6e1a-4f0e-bed0-0cbe210cc1d3.png)
 
 ### Data Balancing(Category)
+![image](https://user-images.githubusercontent.com/56788883/234524791-859282e7-dc9f-49d9-be58-6912cf2f0ccc.png)
 
 
 ## Model training(ML)
