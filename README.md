@@ -1,4 +1,4 @@
-# Analysis on Arabic Tweets Towards COVID-19 Pandemic
+# Analysis of Arabic Tweets Towards COVID-19 Pandemic
 
 ## Pipeline
 ![image](https://user-images.githubusercontent.com/56788883/234524209-45260691-7f49-4f15-87d2-d6b8c32629fa.png)
